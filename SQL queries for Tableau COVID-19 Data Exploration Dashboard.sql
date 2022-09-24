@@ -16,7 +16,7 @@ where continent is not null
 order by 1,2
 
 -- Just a double check based off the data provided
--- numbers are extremely close so we will keep them - The Second includes "International"  Location
+-- numbers are extremely close so keep them - The Second includes "International"  Location
 
 
 --Select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(New_Cases)*100 as DeathPercentage
@@ -29,7 +29,7 @@ order by 1,2
 
 -- 2. 
 
--- We take these out as they are not inluded in the above queries and want to stay consistent
+-- These are taken out as they are not inluded in the above queries and want to stay consistent
 -- European Union is part of Europe
 
 Select location, SUM(cast(new_deaths as int)) as TotalDeathCount
@@ -70,8 +70,8 @@ order by PercentPopulationInfected desc
 
 
 
--- Queries I originally had, but excluded some because it created too long of video
--- Here only in case you want to check them out
+-- Dashboard consisted of above 4 queries
+-- Non-duplicates from the below queries will be included at a later date
 
 
 -- 1.
