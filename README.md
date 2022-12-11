@@ -1,5 +1,5 @@
-# SQL-Query-Log
-Here's a log of my SQL skillset! I adopted this log from an original document created by Matt Mike -- that can be found here: https://github.com/Matt-Mike/SQL-Query-Log/blob/main/README.md -- with a goal of going down the list and learning each type of query.
+# Welcome to My SQL Repo
+Above you will find the SQL files connected to my portfolio projects. Below is a log of my SQL skillset! I adopted this log from an original document created by Matt Mike -- that can be found here: https://github.com/Matt-Mike/SQL-Query-Log/blob/main/README.md -- with a goal of going down the list and learning each type of query.
 
 I have numbered each query title to make it easy for reviewers and future analysts to get an idea of the number of query catergories learned. Additionally, I replace Matt Mike's examples with my own as learn
 
