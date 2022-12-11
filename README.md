@@ -1,7 +1,9 @@
 # SQL-Query-Log
-Here's a log of my SQL skillset!
+Here's a log of my SQL skillset! I adopted this log from an original document created by Matt Mike -- that can be found here: https://github.com/Matt-Mike/SQL-Query-Log/blob/main/README.md -- with a goal of going down the list and learning each type of query.
 
-# Aggregate Functions
+I have numbered each query title to make it easy for reviewers and future analysts to get an idea of the number of query catergories learned. Additionally, I replace Matt Mike's examples with my own as learn
+
+# 1. Aggregate Functions
 AVG() - returns an average value<br/>
 ROUND() to specify precision after a decimal<br/>
 COUNT() - returns number of values<br/>
@@ -9,7 +11,7 @@ MAX() - returns maximum value<br/>
 MIN() - returns minimum value<br/>
 SUM() - returns the sum of all values
 
-# ALTER Table
+# 2. ALTER Table
 Allows for changes to an existing table structure
 
 **Adding columns**<br/>
@@ -33,7 +35,7 @@ RENAME COLUMN person TO people
 ALTER TABLE new_info<br/>
 ALTER COLUMN people DROP NOT NULL
 
-# BETWEEN
+# 3. BETWEEN
 Used to match a value against a range of values.
 
 SELECT COUNT column<br/>
@@ -42,7 +44,7 @@ WHERE column BETWEEN 8 AND 9
 
 Can input NOT BETWEEN to return values not inbetween the designated values.
 
-# CASE
+# 4. CASE
 Executes an SQL code when certain conditions are met, (similar to an IF/ELSE statement)
 
 General CASE Example query:<br/>
@@ -64,7 +66,7 @@ FROM film
 
 - This would return a summed number of everything given the value 1
 
-# CAST
+# 5. CAST
 Converts one data type to another<br/>
 - Must be reasonable conversion
 - Ex: '5' to an integer will work, 'five' to an integer will not
@@ -77,7 +79,7 @@ Example:<br/>
 SELECT CAST(date AS TIMESTAMP)<br/>
 FROM table
 
-# Changing the case of a string<br/>
+# 6. Changing the case of a string<br/>
 **Upper Case**<br/>
 SELECT UPPER(email)<br/>
 FROM customer
@@ -90,7 +92,7 @@ FROM customer
 SELECT INITCAP(title)<br/>
 FROM film
 
-# CHECK
+# 7. CHECK
 Creates more customized constraints that adhere to a certain condition.<br/>
 Example: Making sure all inserted integer values fall below a certain threshold.
 
@@ -104,7 +106,7 @@ CREATE TABLE employees(<br/>
     salary INTEGER CHECK (salary > 0)<br/>
     )
 
-# COALESCE
+# 8. COALESCE
 Accepts an ulimited number of arguments. It returns the first argument that is not null. If all arguments are null, the COALESCE function will return null.
 - Useful when querying a table that contains null values and substituting it with another value.
 
@@ -121,7 +123,7 @@ WHERE year = 2008 AND COUNTRY IN ('CHN, 'RUS')<br/>
 GROUP BY ROLLUP(country, medal)<br/>
 ORDER BY country ASC, medal ASC);
 
-# COUNT/COUNT DISTINCT
+# 9. COUNT/COUNT DISTINCT
 The COUNT function returns the number of input rows that match a specific condtion of a query.<br/>
 COUNT DISTINCT will return only the distinct number of values from a column.<br/>
 
@@ -130,7 +132,7 @@ SELECT COUNT (name) FROM table
 SELECT COUNT(DISTINCT name)<br/>
 FROM table
 
-# CREATE TABLE
+# 10. CREATE TABLE
 General syntax:
 
 CREATE TABLE players(<br/>
@@ -150,7 +152,7 @@ CREATE TABLE account(<br/>
 
 **SERIAL** - typical for the primary key type as it logs unique integer entries automatically upon insertion
 
-# DELETE
+# 11. DELETE
 Removes rows from a table
 
 Syntax:<br/>
@@ -166,7 +168,7 @@ WHERE tableA.id=tableB.id
 Delete all rows from a table<br/>
 DELETE FROM table
 
-# DROP
+# 12. DROP
 Removes a column in a table along with its indexes and constraints.<br/>
 Does not remove columns used in views, triggers, or stored procedures without the CASCADE clause.
 
@@ -182,7 +184,7 @@ DROP COLUMN IF EXISTS col_name
 
 (Can drop multiple columns as well)
 
-# FRAMES
+# 13. FRAMES
 
 **ROWS BETWEEN**<br/>
 ROWS BETWEEN [START] AND [FINISH]
@@ -203,7 +205,7 @@ RANGE BETWEEN [START] AND [FINISH]<br/>
 Similar to ROWS BETWEEN<br/>
 RANGE treats duplicates in OVER's ORDER BY subclause as a single entity
 
-# GROUP BY
+# 14. GROUP BY
 Aggregates columns per category.
 
 Example syntax:<br/>
@@ -212,7 +214,7 @@ FROM payment<br/>
 GROUP BY customer_id<br/>
 ORDER BY SUM(amount)
 
-# HAVING
+# 15. HAVING
 Places a filter after an aggregation has already taken place
 
 SELECT company,SUM(sales)<br/>
@@ -221,13 +223,13 @@ WHERE company != 'Google'<br/>
 GROUP BY company<br/>
 HAVING SUM(sales) > 1000
 
-# IN
+# 16. IN
 Creates a condition that checks to see if a value is included in a list of multiple options.
 
 SELECT color<br/>
 FROM table WHERE color IN ('red','blue')
 
-# INSERT
+# 17. INSERT
 Add rows into a table<br/>
 General syntax:<br/>
 INSERT INTO table (column1, column2)<br/>
@@ -243,7 +245,7 @@ WHERE condition;
 
 Note: SERIAL columns do not need to be provided a value
 
-# JOINS (INNER/OUTER/LEFT/RIGHT) | AS Statement | UNION
+# 18. JOINS (INNER/OUTER/LEFT/RIGHT) | AS Statement | UNION
 JOINS combine information from multiple tables
 
 **AS** creates an "alias" for a column or result<br/>
@@ -278,7 +280,7 @@ SELECT column_name(s) FROM table1<br/>
 UNION<br/>
 SELECT column_name(s) FROM table2
 
-# LIKE/ILIKE
+# 19. LIKE/ILIKE
 Performs pattern matching against string data with the use of **wildcard** characters
 
 % - matches any sequence of characters<br/>
@@ -291,7 +293,7 @@ Example syntax:<br/>
 SELECT * FROM customer<br/>
 WHERE first_name ILIKE 'J%' AND last_name LIKE '%her%'
 
-# LIMIT
+# 20. LIMIT
 Limits the number of rows returned for a query.<br/>
 Goes at the very end of a query
 
@@ -300,14 +302,14 @@ FROM table<br/>
 ORDER BY column DESC<br/>
 LIMIT 5
 
-# Logical Operators
+# 21. Logical Operators
 Combine multiple comparison operators
 
 AND<br/>
 OR<br/>
 NOT<br/>
 
-# NULLIF
+# 22. NULLIF
 Takes 2 inputs and returns NULL if both are equal. Otherwise it returns the first argument passed.<br/>
 - Useful in cases where a NULL value would cause an error or unwanted result
 
@@ -318,26 +320,26 @@ NULLIF(10,10)<br/>
 NULLIF(10,12)<br/>
 - Returns 10
 
-# ORDER BY
+# 23. ORDER BY
 Sorts rows based on a column value, in ascending or descending order.
 
 SELECT column_1, column_2<br/>
 FROM table<br/>
 ORDER BY column_1 ASC/DESC
 
-# REPLACE<br/>
+# 24. REPLACE<br/>
 Replace characters in a string.
 
 SELECT REPLACE(description, 'A Astounding', 'An Astounding') AS description<br/>
 FROM film
 
-# REVERSE<br/>
+# 25. REVERSE<br/>
 Reverses the order of a string.
 
 SELECT title, REVERSE(title)<br/> 
 FROM film AS f
 
-# ROLLUP and CUBE
+# 26. ROLLUP and CUBE
 
 **ROLLUP**
 GROUP BY subclause that includes extra rows for group-level aggregations.
@@ -360,7 +362,7 @@ It generates all possible group-level aggregations
 
 CUBE(country,medal) counts country-level, medal-level, and grand totals
 
-# SELF-JOIN
+# 27. SELF-JOIN
 
 A query in which a table is joined to itself.<br/>
 Useful for comparing values in a column of rows within the same table.<br/>
@@ -378,7 +380,7 @@ INNER JOIN film AS f2 ON<br/>
 f1.film_id = f2.film_id<br/>
 AND f1.length = f2.length
 
-# String Functions and Operators<br/>
+# 28. String Functions and Operators<br/>
 Edits, combines and alters text data columns
 
 Example syntax:<br/>
@@ -454,10 +456,10 @@ SELECT LPAD('padded', 10, '#');<br/>
 Returns: ####padded<br/>
 Note: Returns a character length of 10 and fills blanks space with the # symbol.
 
-# STRING_AGG<br/>
+# 29. STRING_AGG<br/>
 STRING_AGG(column, separator) takes all the values of a column and concatenates them, with separator in between each value
 
-# SubQuery
+# 30. SubQuery
 
 Performs a query on the results of another query
 
@@ -480,7 +482,7 @@ WHERE EXISTS<br/>
 WHERE p.customer_id = c.customer_id<br/>
 AND amount > 11)
 
-# Text Search
+# 31. Text Search
 
 **to_tsvector and tsquery**<br/>
 SELECT to_tsvector(description)<br/>
@@ -490,7 +492,7 @@ SELECT title, description<br/>
 FROM film<br/>
 WHERE to_tsvector(title) @@ to_tsquery('elf');
 
-# TIMESTAMPS and EXTRACT
+# 32. TIMESTAMPS and EXTRACT
 
 TIME - Contains only time<br/>
 DATE - Contains only date<br/>
@@ -522,7 +524,7 @@ T0_CHAR(date_col,'mm-dd-yyyy')
 SELECT TO_CHAR(payment_date,'MONTH-YYYY')<br/>
 FROM payment
 
-# UPDATE
+# 33. UPDATE
 Changes values of columns in a table
 
 General syntax:<br/>
@@ -549,7 +551,7 @@ UPDATE account<br/>
 SET last_login = created_on<br/>
 RETURNING account_id,last_login
 
-# User Defined Data Types
+# 34. User Defined Data Types
 
 **ENUM**<br/>
 Enumerated data types are great options to use in your database when you have a column where you want to store a fixed list of values that rarely change. Examples include the directions on a compass (i.e., north, south, east and west).
@@ -565,7 +567,7 @@ SELECT * <br/>
 FROM pg_type<br/>
 WHERE typname='compass_position';
 
-# VIEW
+# 35. VIEW
 Stores a specific query
 
 Example query:<br/>
@@ -579,14 +581,14 @@ SELECT * FROM customer_info
 
 To modify the VIEW, input CREATE OR REPLACE VIEW at the beginning of the query and then make the needed adjustments to the VIEW syntax
 
-# WHERE
+# 36. WHERE
 The WHERE function specifies conditions on columns for the rows to be returned.
 
 SELECT column1, column2<br/>
 FROM table<br/>
 WHERE conditions (ex: name='David')
 
-# Window Functions
+# 37. Window Functions
 
 **FIRST_VALUE(column)**<br/>
 Returns the first value in the table or partition.
