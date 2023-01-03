@@ -3,7 +3,7 @@ Above you will find the SQL files connected to my portfolio projects. Below is a
 
 I have numbered each query title to make it easier for reviewers and future analysts to get an idea of the number of query catergories learned. Additionally, I replace Matt Mike's examples with my own as learn each type of query.
 
-**USE THE FILTER BUTTON NEXT TO THE LINE COUNT ("690 lines") TO MOVE QUICKLY THROUGH THE DOCUMENT.**
+**USE THE FILTER BUTTON NEXT TO THE LINE COUNT ("689 lines") TO MOVE QUICKLY THROUGH THE DOCUMENT.**
 
 # 1. Aggregate Functions
 AVG() - returns an average value<br/>
