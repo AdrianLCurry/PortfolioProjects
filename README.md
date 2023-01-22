@@ -40,9 +40,9 @@ ALTER COLUMN people DROP NOT NULL
 # 3. BETWEEN
 Used to match a value against a range of values.
 
-SELECT COUNT column<br/>
-FROM table<br/>
-WHERE column BETWEEN 8 AND 9
+SELECT title, year<br/>
+FROM movies<br/>
+WHERE year BETWEEN 2000 AND 2010
 
 Can input NOT BETWEEN to return values not inbetween the designated values.
 
@@ -589,6 +589,11 @@ The WHERE function specifies conditions on columns for the rows to be returned.
 SELECT column1, column2<br/>
 FROM table<br/>
 WHERE conditions (ex: name='David')
+
+Example query:<br/>
+SELECT title, year<br/>
+FROM movies <br/>
+WHERE id = 6; <br/>
 
 # 37. Window Functions
 
