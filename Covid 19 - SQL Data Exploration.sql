@@ -28,8 +28,8 @@ order by 1,2
 Select Location, date, total_cases,total_deaths, (total_deaths/total_cases)*100 as DeathPercentage
 From PortfolioProject..CovidDeaths
 Where location like '%states%'
-and continent is not null 
-order by 1,2
+and continent IS NOT null 
+Order By 1,2
 
 
 -- Total Cases vs Population
@@ -37,17 +37,17 @@ order by 1,2
 
 Select Location, date, Population, total_cases,  (total_cases/population)*100 as PercentPopulationInfected
 From PortfolioProject..CovidDeaths
---Where location like '%states%'
-order by 1,2
+Where location like '%states%'
+Order By 1,2
 
 
 -- Countries with Highest Infection Rate compared to Population
 
-Select Location, Population, MAX(total_cases) as HighestInfectionCount,  Max((total_cases/population))*100 as PercentPopulationInfected
+Select Location, Population, MAX(total_cases) as HighestInfectionCount,  MAX((total_cases/population))*100 as PercentPopulationInfected
 From PortfolioProject..CovidDeaths
 --Where location like '%states%'
-Group by Location, Population
-order by PercentPopulationInfected desc
+Group By Location, Population
+Order By PercentPopulationInfected DESC
 
 
 -- Countries with Highest Death Count per Population
@@ -153,7 +153,8 @@ From #PercentPopulationVaccinated
 
 Create View PercentPopulationVaccinated as
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, SUM(CONVERT(int,vac.new_vaccinations)) OVER (Partition by dea.Location Order by dea.location, dea.Date) as RollingPeopleVaccinated
+, SUM(CONVERT(int,vac.new_vaccinations)) OVER (Partition by dea.Location
+Order by dea.location, dea.Date) as RollingPeopleVaccinated
 --, (RollingPeopleVaccinated/population)*100
 From PortfolioProject..CovidDeaths dea
 Join PortfolioProject..CovidVaccinations vac
